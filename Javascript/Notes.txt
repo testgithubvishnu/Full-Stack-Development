@@ -1,10 +1,173 @@
+JAVASCRIPT:
+==================================
+Multipurpose programming langauage used for various thing..
+frontend development
+game development
+mobile app development
+Machine Leraning
+Robotics
+Web API development
+
+======================================
+variables:
+#let:
+let name="name";
+let num=90;
+name=34  // Allowed
+
+#const :
+const a=78;
+a=34  // Not allowed
+
+javascript internally identifies type of variable
+
+-No need to specify the type of variable like in any other language
+ -javascript is loosely type language
+
+============================= JS Versions: ========================
+es5 -: var 
+es6 -: let & const
+
+var is in old js
+var is function scoped 
+var add itself to the window object
+
+const and let in new js
+let is bracket/braces scoped
+let and const doesnt add itself to the window object
+
+There are many features in java which are not their own .
+JS uses window object of browser to get some features of browser/properties.
+window object contains properties of browser
+
+i.e alert(),prompt(),console() are parts of browser.
+
 stack:Primitive Data Type,We get copy
 Ex..int,boolean,float,double etc.
 
 Heap:Non-Primitive Dta Type,We get reference
 Ex..Array,object etc.
 
-==========================================================================================
+
+# Stack:
+we stores variables and data in heap memory
+
+================================= Execution Context: ==========================
+Imaiginary container made by function which contains:
+Whenever function is called it gets created
+1]variables
+2]functions inside function 
+3]lexical environment of function
+
+Ex.
+function abcd()
+{
+    var a=12;
+    function def()
+    {
+        var b=12;
+    }
+}
+# ==================== Lexical Environment:================================
+It is a chart which contains scope to various variables by function.
+Children functions can access parent variables but parent cant.
+
+# How to copy reference value:
+var a=[1,2,3,4,5,6,7,8,9];
+var b=[...a];  // Actual reference value
+var c=b;       // only reference
+
+var obj={
+    name:"harshal";
+};
+var obj1={...obj};
+
+# Truthy and Falsy:
+falsy values: 0 false undefined null NaN document.all
+rest are truthy vaiues
+
+Anonyms Function:
+var a=[1,2,3,4,5,6,7,8,9];
+a.forEach(function(val)
+{
+  console.log(val);
+});
+
+forEach never make change in original array but make changes in temporary copy of array.
+
+++++++++++++++++++++++++++++++++++++++++++++ CALL STACK  +++++++++++++++++++++++++++++++++++++++
+Execution context:
+How javascript execute code?
+
+# javscript execute it in given phases:
+-Global execution context: (this)
+-Memory creation phases:
+-Execution phase
+
+# context:
+1] Global execution context: (this)
+
+
+2] Function execution context
+3] eval execution context
+
+==================================== Hoisting: =============================
+Declaration moves at the top
+
+console.log(a);
+var a=45;
+in this :
+var a;  // moved at the top
+a=45;
+
+#======================= Refernce value vs primitive value: =====================
+Value when copied in another variable real value never copies instead of that Refernce is passed then it s referenced value.otherwise prmitive;
+ 
+ Reference:- [],(),{}
+
+for example:
+int a=12;
+int b=a;
+b= a+2;
+// a=12 & b=14
+
+var a=[2,3,4];
+var b=a;
+b.pop();
+// a=[2,3] and b=[2,3]
+
+
+
+# ================ Template literlas========
+let name="akshu";
+console.log(`my name is ${name}`);
+======================================== For in loop: ================================
+var obj={
+    name: "shila",
+    age:45
+}
+for(var key in obj)
+{
+    console.log(key);
+}
+
+# ==========================================First class functions:====================
+We can treat function as a variable/value.
+
+When passing function just pass as variable
+
+function abcd(a)
+{
+    a();
+}
+
+abcd(function ()
+{
+    console.log(34);
+})
+
+
+
 # JSON: Javascript object Notation
 
 const course = {
@@ -59,10 +222,7 @@ function myage(user) {
 }
 console.log(myage([23, 45, 67, 32]));
 =============================================================================
-# Scope of varibles:
 
-let and const are block scoped
-var has global scope
 
 +++++++++++++++++++++++++++++++++++++ IIFE ++++++++++++++++++++++++++++++++++
 Immediately Invoked Function Expression(IIFE):
@@ -75,114 +235,8 @@ Immediately Invoked Function Expression(IIFE):
   console.log(`my name is ${name}`);
 })("Aman");
 
-++++++++++++++++++++++++++++++++++++++++++++ CALL STACK  +++++++++++++++++++++++++++++++++++++++
-Execution context:
-How javascript execute code?
 
-# javscript execute it in given phases:
--Global execution context: (this)
--Memory creation phases:
--Execution phase
-
-# context:
-1] Global execution context: (this)
-
-
-2] Function execution context
-3] eval execution context
-
-======================================================================
-
-==================================== Hoisting: =============================
-Declaration moves at the top
-
-console.log(a);
-var a=45;
-in this :
-var a;  // moved at the top
-a=45;
-
-#======================= Refernce value vs primitive value: =====================
-Value when copied in another variable real value never copies instead of that Refernce is passed then it s referenced value.otherwise prmitive;
- 
- Reference:- [],(),{}
-
-for example:
-int a=12;
-int b=a;
-b= a+2;
-// a=12 & b=14
-
-var a=[2,3,4];
-var b=a;
-b.pop();
-// a=[2,3] and b=[2,3]
-
-============================= JS Versions: ========================
-es5 -: var 
-es6 -: let & const
-
-var is in old js
-var is function scoped 
-var add itself to the window object
-
-const and let in new js
-let is bracket/braces scoped
-let and const doesnt add itself to the window object
-
-There are many features in java which are not their own .
-JS uses window object of browser to get some features of browser/properties.
-window object contains properties of browser
-
-i.e alert(),prompt(),console() are parts of browser.
-
-# Stack:
-we stores variables and data in heap memory
-
-================================= Execution Context: ==========================
-Imaiginary container made by function which contains:
-Whenever function is called it gets created
-1]variables
-2]functions inside function 
-3]lexical environment of function
-
-Ex.
-function abcd()
-{
-    var a=12;
-    function def()
-    {
-        var b=12;
-    }
-}
-# ==================== Lexical Environment:================================
-It is a chart which contains scope to various variables by function.
-Children functions can access parent variables but parent cant.
-
-# How to copy reference value:
-var a=[1,2,3,4,5,6,7,8,9];
-var b=[...a];  // Actual reference value
-var c=b;       // only reference
-
-var obj={
-    name:"harshal";
-};
-var obj1={...obj};
-
-# Truthy and Falsy:
-falsy values: 0 false undefined null NaN document.all
-rest are truthy vaiues
-
-Anonyms Function:
-var a=[1,2,3,4,5,6,7,8,9];
-a.forEach(function(val)
-{
-  console.log(val);
-});
-
-forEach never make change in original array but make changes in temporary copy of array.
-
-# ===================================== For in loop: ================================
+=================================================
 var obj={
     name: "shila",
     age:45
@@ -221,8 +275,6 @@ places it at the top of the call stack, and begins the function’s execution.
 
 if the function calls another function javascript engine creates a new function execution context and pushes it to the top of the call stack.
 
-======================================= Events ==============================
-
 
 ======================================== Async =================================
 Blocking code vs non-blocking code:
@@ -260,6 +312,17 @@ const requestUrl ='https://randomuser.me/api/' ;
         V8 engine written in c++ but wrapper of Javascript.
       
 =================================== PROMISES =======================================
+
+-Used for third party dependent tasks
+promise execute in future 
+it wiil resolve or rejected
+-resolve -> the
+-reject  -> catch
+
+-It may in three codition:
+pending
+resolved 
+reject
 
 1] The promises object represents the eventual completion for failure of an asynchronous operation and its resulting value.
 
@@ -318,8 +381,6 @@ var alien = {
 alien.__proto__ = human;
 
 
-
-==============================================================================
 +++++++++++++++++++++++++++++ Higher Order Functions+++++++++++++++++++++++++++++++
 Higher order functions are the functions which accept a function int parameter or return function
 ex..
@@ -331,7 +392,7 @@ abcd()
 }
 
 +++++++++++++++++++ Constructor Function +++++++++++++++++++++++
-Afunction whenever invoked with "New" keyword returns object.
+A function whenever invoked with "New" keyword returns object.
 function abc()
 {
     this.name = "abc";
@@ -375,8 +436,6 @@ var x=(function()
     }
 
 })()
-
-====================================== PROTOTYPE ===================================
 
 
 =================================== THIS =================================
@@ -470,14 +529,3 @@ async Await
 
 # Whenever given code runs in future it will give output in callback function.
 
-================================== PROMISES ===================================
--Used for third party dependent tasks
-promise execute in future 
-it wiil resolve or rejected
--resolve -> the
--reject  -> catch
-
--It may in three codition:
-pending
-resolved 
-reject
