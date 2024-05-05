@@ -1,0 +1,1 @@
+When passing function as argument then just pass name of the funtion

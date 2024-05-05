@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: rgb(148, 133, 133);
+        }
+        #div{
+            animation: bouncing 5s ease 0s infinite alternate both ;
+            
+         margin-left: 100px;
+            height: 200px;
+            width: 200px;
+            border-radius: 100px;
+            
+            color: white;
+            position: absolute;
+            background-color:orange;
+            margin-top: 100px;
+            display: inline-block;
+            
+
+        }
+        #div1{
+            animation: bouncing 5s ease 0s infinite alternate both ;
+            
+         margin-left: 400px;
+            height: 200px;
+            width: 200px;
+            border-radius: 100px;
+            
+            color: white;
+            position: absolute;
+            background-color:white;
+            margin-top: 100px;
+            display: inline-block;
+            
+
+        }
+        #div2{
+            animation: bouncing 5s ease 0s infinite alternate both ;
+            
+         margin-left: 800px;
+            height: 200px;
+            width: 200px;
+            border-radius: 100px;
+            
+            color: white;
+            position: absolute;
+            background-color:green;
+            margin-top: 100px;
+            display: inline-block;
+            
+
+        }
+        @keyframes bouncing{
+            0%{
+                bottom: 0px;
+                box-shadow: 0 0 5px rgba(0, 0, 0, 1);
+            }
+            100%{
+                bottom: 700px;
+                box-shadow:0 50px 50px rgba(0, 0, 0, 1);
+            }
+
+
+        }
+    </style>
+</head>
+<body>
+    <div id="div"></div>
+    <div id="div1"></div>
+    <div id="div2"></div>
+</body>
+</html>

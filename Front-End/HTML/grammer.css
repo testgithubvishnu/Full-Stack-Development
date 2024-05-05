@@ -1,0 +1,31 @@
+
+span{
+    color: white;
+    background-color: chartreuse;
+    font-size: 80px;
+    border: 2px;
+    border-style:groove;
+    border-color:black;
+    
+}
+body{
+    background-color: black;
+   
+}
+summary
+{
+    color:azure;
+     font-size: 50px;
+}
+p{
+    color:white;
+    font-size: 50px;
+}
+button
+{
+    background-color: aqua;
+    border: 5px;
+    border-color: white;
+    border-style:solid;
+    font-size: 40px;
+}

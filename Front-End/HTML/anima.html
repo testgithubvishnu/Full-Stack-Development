@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+     .first1,.first2,.first3{
+        width: 200px;
+        height: 200px;
+        margin: 10px 20px 10px 20px;
+        border: 2px solid black;
+        border-radius: 100px;
+       
+
+     }
+     .first1{
+        animation: color1 5s ease-in-out  infinite ;
+     }
+     .first2{
+        animation: color2 5s ease-in-out  infinite ;
+     }
+     .first3{
+        animation: color3 5s ease-in-out  infinite ;
+     }
+     body{
+        animation: harry 5s ease-in-out infinite;
+     }
+     .container{
+        display: flex;
+        justify-content: center;
+     }
+     @keyframes harry{
+        0%{
+         background-color:darkred;
+        }
+        25%{
+           background-color:crimson; 
+        }
+        50%{
+          background-color: blue;  
+        }
+        75%{
+            background-color:aqua;
+        }
+        100%{
+        background-color:chartreuse;    
+        }
+
+     }
+     @keyframes color1{
+        0%{
+         background-color: aqua;
+        }
+        25%{
+           background-color: blue; 
+        }
+        50%{
+          background-color: chartreuse;  
+        }
+        75%{
+            background-color: crimson;
+        }
+        100%{
+        background-color: darkred;    
+        }
+     }
+     @keyframes color2{
+        0%{
+         background-color:firebrick;
+        }
+        25%{
+           background-color:white; 
+        }
+        50%{
+          background-color:darkmagenta;  
+        }
+        75%{
+            background-color:teal;
+        }
+        100%{
+        background-color:darkorange;    
+        }
+     }
+     @keyframes color3{
+        0%{
+         background-color:blueviolet
+        }
+        25%{
+           background-color:cyan; 
+        }
+        50%{
+          background-color:gold;  
+        }
+        75%{
+            background-color:deeppink;
+        }
+        100%{
+        background-color:forestgreen;    
+        }
+     }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="first1"></div>
+        <div class="first2"></div>
+        <div class="first3"></div>
+    </div>
+</body>
+</html>

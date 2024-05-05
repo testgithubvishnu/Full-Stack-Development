@@ -1,0 +1,111 @@
+==================================== Hoisting: =============================
+Declaration moves at the top
+
+console.log(a);
+var a=45;
+in this :
+var a;  // moved at the top
+a=45;
+
+#======================= Refernce value vs primitive value: =====================
+Value when copied in another variable real value never copies instead of that Refernce is passed then it s referenced value.otherwise prmitive;
+ 
+ Reference:- [],(),{}
+
+for example:
+int a=12;
+int b=a;
+b= a+2;
+// a=12 & b=14
+
+var a=[2,3,4];
+var b=a;
+b.pop();
+// a=[2,3] and b=[2,3]
+
+============================= JS Versions: ========================
+es5 -: var 
+es6 -: let & const
+
+var is in old js
+var is function scoped 
+var add itself to the window object
+
+const and let in new js
+let is bracket/braces scoped
+let and const doesnt add itself to the window object
+
+There are many features in java which are not their own .
+JS uses window object of browser to get some features of browser/properties.
+window object contains properties of browser
+
+i.e alert(),prompt(),console() are parts of browser.
+
+# Stack:
+we stores variables and data in heap memory
+
+================================= Execution Context: ==========================
+Imaiginary container made by function which contains:
+Whenever function is called it gets created
+1]variables
+2]functions inside function 
+3]lexical environment of function
+
+Ex.
+function abcd()
+{
+    var a=12;
+    function def()
+    {
+        var b=12;
+    }
+}
+# ==================== Lexical Environment:================================
+It is a chart which contains scope to various variables by function.
+Children functions can access parent variables but parent cant.
+
+# How to copy reference value:
+var a=[1,2,3,4,5,6,7,8,9];
+var b=[...a];  // Actual reference value
+var c=b;       // only reference
+
+var obj={
+    name:"harshal";
+};
+var obj1={...obj};
+
+# Truthy and Falsy:
+falsy values: 0 false undefined null NaN document.all
+rest are truthy vaiues
+
+Anonyms Function:
+var a=[1,2,3,4,5,6,7,8,9];
+a.forEach(function(val)
+{
+  console.log(val);
+});
+
+forEach never make change in original array but make changes in temporary copy of array.
+
+# ===================================== For in loop: ================================
+var obj={
+    name: "shila",
+    age:45
+}
+for(var key in obj)
+{
+    console.log(key);
+}
+
+# ==========================================First class functions:====================
+We can treat function as a variable/value.
+
+function abcd(a)
+{
+    a();
+}
+abcd(function ()
+{
+    console.log(34);
+})
+

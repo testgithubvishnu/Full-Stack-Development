@@ -1,0 +1,197 @@
+# Structure of Node js:
+
+Node js is consist of lots of C++ code which is taken from V8 engine of chrome browser.
+This C++ code is wrapped in js code.
+
+It allows us to write js code ,it accepts this js code and on the basis of C++ it creates server environment.
+This code run till node is running.
+node : V8 Engine + js Wrapper.
+
+Open Terminal = ctrl + tilde (~)
+
+Run js file:
+node .\filename.js
+
+# Import and Export files:
+export:
+  export modules={data};
+
+Import:
+   var variable = require('./filename.js')
+
+# npm: node package manager
+we get Apps of node(packages)
+npm = playstore of packages
+
+package = files of code
+
+# Express:
+Framework of node.js
+Used for Routing.
+
+Routing:- 
+//https://WWW.facebook.com/profile
+
+routing:
+/profile = profile
+/contact = contact
+'/' routes
+
+Types:
+GET route : Visible to user
+POST route : not visible
+DELETE route
+PATCH route
+
+install express: npm i express
+
+install : npm i nodemon -g(Global)
+To run file: npx nodemon .\filename.js
+
+when we run with node and if we made some changes we have to close the server and restart it.
+BUt using nodemon we no need to restart just refresh it.
+
+# MiddleWare:
+MiddleWare is a function which runs before router.
+If we want to do some other work before router then use middleware.
+
+If middleware runs continously then request get jammed and cant reach to router.
+
++ There is one problem with node js if control goes to any middleware then it cant goes to next route/middleware automatically. there is need to push it that push is next.
+
+Use next() after middleware/route.
+
+
+# Express JS:
+short and easy to create server.
+When request send by user first execute middleware then there is set of routes that request tries to match with that one of route and execute it.
+
+If does not match :
+1]There is all num which execute all types of routes.
+2] gives error that this route does not exist
+
+Node Vs Express:
+Exprexx is more flexible than Node js
+
+
+
+What is express JS?
+
+
+Why Express?
+Http is difficult to use express is easy
+Develops Node.js web applications quickly and easily.
+
+It’s simple to set up and personalise.
+
+Allows you to define application routes using HTTP methods and URLs.
+
+Includes a number of middleware modules that can be used to execute additional requests and responses activities.
+
+Simple to interface with a variety of template engines, including Jade, Vash, and EJS.
+Allows you to specify a middleware for handling errors.
+
+
+# Routing: Process of creating routes.
+/About
+/home
+/log in
+/snackie/home/about
+
+// req : contains request for information/data about user location,name,device type etc.
+// res : user sends request after that server sends response/data in the form res
+//     ex..  res.send('Hello dear')
+// server contains controls on basis which server sends response
+// next : 
+
+# Dynamic Routing:
+Any routes whose specific part changes frequently
+/profile/A
+/profile/B
+/profile/C
+
+/profile/:username
+: Anything can be there
+to access use=> `hello ${req.params.username}`
+
+Route paratmeters:
+To make any route dynamic you can use : at that place where you want to make it dynamic.
+And to access there value use req.params.value
+
+Ejs is html with superpower
+
+# Template engines:
+markup styles which later on convert into html.
+
+#static files:
+images,stylesheets,frontend setup
+
+# Error handling:
+
+app.get("/error",function(req,res,next){
+    throw Error("something went wrong");
+});
+
+# after routes:
+
+app.use(function errorHandler(err,req,res,next)
+  {
+    if(res.headersSent){
+        return next(err)
+    }
+    res.status(500)
+    res.render('error',{error:err})
+  })
+
+  'error' => create error.ejs in views folder
+  where there is error word replaces it with 'err'
+
+   <%=error%>
+
+   # Express Generator:
+    We have to lots of work to setup express for each new project.
+    To save this time we can use express to generate.
+    Express generator will generate folder for each project.
+
+    # Steps to use express generator:
+    1] install express-generator globally
+      npm install express-generator -g
+   
+    2] To create a new project:
+     1) open cmd move to desktop
+     2)create new app:
+       express appname --view=ejs
+
+    now use two commands to create
+    cd appname
+    npm i
+    open it on vs code
+
+  # Open vs code from cmd:
+    code .
+
+  # to run the app:
+    command=> npx nodemon
+
+  # Client And Server:
+  Client is any type of browser: Firefox,chrome browser ,microsoft browser etc.
+  Server: Node js server
+  Both are present in computer
+
+  we are connecting Client to the server that called localhost.
+
+  Client has cookies and server has session.
+
+ - Whenever we want store/save any data in server we have to use session.
+ - Cookie saves data in frontend where the session used in server/backend .
+ - Session is more secure than cookies
+
+ # We cant use data in one route to another route.
+
+ 
+
+
+
+
+
+

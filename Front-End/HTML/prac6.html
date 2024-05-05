@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p class="big-screen">my name is akshata</p>
+    <p class="big-screen">my name is vaishali</p>
+    <p class="big-screen">my name is vishnu</p>
+    <p class="big-screen">my name is shobha</p>
+
+    <script>
+        var element=document.body.getElementsByClassName("big-screen");
+        for(let i=0;i<element.length;i++)
+        {
+            element[i].style.fontSize="20px";
+            element[i].style.color="green";
+            element[i].style.backgroundColor="yellow";
+        }
+        </script>
+</body>
+</html>

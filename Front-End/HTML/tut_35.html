@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+         :root{
+            --first:red;
+             --div-color:violet;                   /* global variable */
+         }
+        .div1{
+             --div-color:violet;  /*//local variable */
+         height: 100px;
+         width: 100px;
+         background-color: var(--div-color);
+         margin: 4px 5px;
+         border:2px solid black;
+         box-shadow: 2px 2px var(--div-color);
+
+        }
+        
+        
+        .container{
+            display: flex;
+            background-color:var(--first)
+
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="div1"></div>
+    <div class="div1"></div>
+    <div class="div1"></div>
+</div>    
+
+</body>
+</html>

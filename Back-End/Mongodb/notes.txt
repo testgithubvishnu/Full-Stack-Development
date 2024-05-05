@@ -1,0 +1,239 @@
+Front-End -> API -> Database
+
+# Databases:
+Microsoft- SQL Server
+Oracle - Oracle SQL Server
+
+# open source databases:
+MySQL 
+PostgresSQL
+
+install mongoosejs
+npm i mongoose
+
+require and setup connection
+make Schema 
+create model and export
+
+Open cmd line:
+To start Mongodb :=  mongosh
+To create database := use database_name
+ 
+# To connect with Mongodb:
+const mongoose = require("mongoose");
+mongoose.connect("mongodb://127.0.0.1:27017/customers");
+
+const userschema=mongoose.Schema({
+    username=String;
+    name:String;
+    age:Number;
+})
+module.exports=mongoose.model("user",userchema);
+
+code side = mongodb side
+db setup = Database formation
+Model = Collection
+Schema = Documents
+
+=======================================================
+MongoDB - Non-relational database system
+- Stores data in document format
+{
+    name:"Akash",
+    age:27,
+    city:"Latur"
+}
+
+To interact with database system:
+  1] Terminal
+  2] API/Java/Python/JS
+  3] software application
+
+-In MongoDB we have MQL/MQ API to interact with the database
+Database -> Collections -> documents
+-MongoDB Compass- tool to intercat with the database
+
+======================== MongoDB Commands=================
+-To see the databases present in system
+--- show dbs
+
+-To create database
+--- use database_name
+
+-Untill we do not create any collection in database it will not be shown.
+
+-To create collection:
+db.createCollection('name)
+
+Note: Always create collection with plural name. Mongoose by default create collection with plural name.
+
+-To view Collections:
+--- show collections
+
+-To create new document/record/data:
+--- db.collectionName.insertOne({})
+
+-To create multiple records:
+--- db.collectionName.insertMany([{},{},{}...{}])
+
+-to view data in collection:
+--- db.collectionName.find()
+
+-To view data based on filter/condition:
+--- db.collectionName.find({prop:value})
+
+ -To update data in collection:
+ db.collectionName.updateOne({attr to identofy},{$set,{attr:newVal}})
+
+ -To delete record:
+ db.collectionName.deleteOne({prop:value})
+
+ -To completly clear collection:
+ db.collectionName.deleteMany({});
+
+ - To remove collection:
+ --- db.collectionName.drop()
+
+ - Find number of documents:
+ --- db.collectionName.countDocuments()
+
+
+
+ ==========================================================
+ # QUERY OPERATORS IN MONGODB:
+
+# Comparison
+ =============
+The following operators can be used in queries to compare values:
+
+$eq: Values are equal
+$ne: Values are not equal
+$gt: Value is greater than another value
+$gte: Value is greater than or equal to another value
+$lt: Value is less than another value
+$lte: Value is less than or equal to another value
+$in: Value is matched within an array
+
+ex.. db.students.find({$and:[{age:{$gte:30}},{age:{$lte:40}}]})
+
+#Logical:
+===============
+The following operators can logically compare multiple queries.
+
+$and: Returns documents where both queries match
+$or: Returns documents where either query matches
+$nor: Returns documents where both queries fail to match
+$not: Returns documents where the query does not match
+
+Evaluation
+==========
+The following operators assist in evaluating documents.
+
+$regex: Allows the use of regular expressions when evaluating field values
+$text: Performs a text search
+$where: Uses a JavaScript expression to match documents
+
+======================================================================
+# VALIDATION AND AGGREGATION:
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+to maintain rugulation in data we validate it.
+-Collection with schema validation - Json schema validation
+ex..
+
+In node js document/object everything considered as bson (binary json)
+
+# AGGREGATION:
+=================
+-Processing large amount of data for our purpose or for computation
+- sorting,filtering,manipulate,finding,drops etc.
+
+= aggregation:
+// find document based on category/filtering
+// group it
+// sort it
+// limit it
+// result
+
+db.collectionName.aggregate({
+  $match:{price:{$lt:100}}
+})
+They make aggregation pipeline
+
+# To find specific attribute:
+- db.student.aggregate({  $group:{_id:'$course'}})
+only course attribute will be get displayed
+
+db.student.aggregate([{  $group:{_id:'$course',noOfStudent:{$sum:1}}}])
+
+db.student.aggregate([{  $group:{_id:'$course',noOfStudent:{$sum:'$age'}}}])
+
+db.student.aggregate([{  $group:{_id:'$course',noOfStudent:{$avg:'$age'}}}])
+
+
+# user.js:
+
+const mongoose = require("mongoose");
+mongoose.connect("mongodb://127.0.0.1:27017/customers");
+
+const userschema= mongoose.Schema({
+    username:String,
+    name:String,
+    age:Number,
+});
+module.exports=mongoose.model("user",userschema);
+
+==============================================================================
+
+# index.js:
+
+var express = require("express");
+var router = express.Router();
+const userModel=require("./users.js");
+
+/* GET home page. */
+router.get("/", function(req, res) {
+  res.render("index");
+});
+========================================================================
+// CREATE COLLECTION:
+//Asynchrnous routes
+// router.get('/create', async  function(req, res, next) {
+//  const createdUser= await userModel.create({
+//     username:"Pass@123",
+//     name:"John",
+//     age:"22",
+//   });
+  //Synchronously create
+//   res.send(createdUser);
+// });
+//================================================================================
+
+//FIND IN COLLECTION:
+// router.get('/find', async  function(req, res, next) {
+//   let allUser= await userModel.find()
+
+  //let allUser= await userModel.findOne({username:"john"});
+
+   //Synchronously create
+//    console.log(allUser);   // if not present gives null error
+//     res.send(allUser);
+// });
+//====================================================================================
+
+// DELETE IN COLLECTION:
+// router.get("/delete", async function(req, res) {
+//   let deletedUser = await userModel.findOneAndDelete({
+//     name:"John"
+//   })
+//   res.render(deletedUser);
+// });
+
+=======================================================================================
+// AllUser:
+// router.get("/allUsers", async function(req, res) {
+// let all=await userModel.find()
+// res.send(all);
+// });   => gives []
+
+module.exports = router;
+

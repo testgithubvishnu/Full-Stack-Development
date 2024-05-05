@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            display: flex;
+            /* justify-content: center;
+            align-items: center; */
+            height: 100%;
+            width: 100%;
+        }
+        .first{
+            height: 100px;
+            width: 100px;
+            border:2px solid black;
+            border-radius: 50px;
+            animation: harry  5s ease-in-out 2s 1 ;
+            background-color: blue;
+        }
+        @keyframes harry{
+            0%{
+                top: 0px;
+                left: 0px;
+
+             /* height: 200px;
+             width: 200px;
+             border-radius: 100px; */
+            }
+            25%{
+              left: 0px;
+              bottom: 0px;  
+              top: 800px;
+              right: 800px;
+              /* height: 300px;
+              width: 300px;
+              border-radius: 150px;*/
+            } 
+            50%{
+              right: 0px;
+              bottom: 0px;  
+              left: 800px;
+              top: 800px;
+              /* height: 400px;
+              width: 400px;
+              border-radius: 200px; */
+            } 
+            75%{
+             top: 0px;
+             right:0px;
+             left: 800px;  
+             bottom: 800px; 
+             /* height: 500px;
+             width: 500px;
+             border-radius: 250px; */
+            }
+            100%{
+           top:0 px;
+             left: 0px; 
+             bottom: 800px;
+             right: 800px;
+             
+            /* height: 600px;
+            width: 600px;
+            border-radius: 300 */
+             }
+            }
+    </style>
+</head>
+<body>
+    <div class="first"></div>
+</body>
+</html>

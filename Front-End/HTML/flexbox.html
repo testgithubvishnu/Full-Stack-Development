@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>flexbox practice</title>
+    <style>
+    .container{
+        height:544px;
+        width:100%;
+        border:2px solid black;
+        display: flex;        /* intialise the container as flexbox*/
+         flex-direction: column; 
+        /* flex-wrap: wrap; */ */
+        /* flex-flow: row-reverse wrap; */
+        /* justify-content:space-between; */
+        /* justify content will justify the  content in horizontal direcction
+        justify-content: center;
+        justify-content : space-evenly;
+        justify-content : space-around;
+        justify-content:space-between; */
+
+       /* align-items:stretch; */
+      
+        
+    }
+   /* flex-basis:
+    when flex direction is row it controls the width of the element
+    when flex direction is column it controls the height of the element;
+    */
+
+    .itme{
+    
+        background-color: rgb(255, 102, 0);
+        border: 2px solid black;
+        margin: 10px;
+        padding: 3px;
+        height: 200px;
+        width: 200px;
+    }
+    #item1{
+        order: 2;
+        /* flex-grow: 4; */
+        flex-basis: 260px;
+    }
+    #item2{
+        order: 15;
+    }
+    /* higher be the order it will show before the element of order lesss than this*/
+    </style>
+    
+</head>
+<body>
+    <div class="container">
+        <div class="itme" id="item1">
+            first box
+        </div>
+        <div class="itme" id="item2">
+            second box
+        </div>
+        <div class="itme" id="item3">
+            third box
+        </div>
+        <div class="itme" id="item4">
+        fourth box
+        </div>
+        <div class="itme" id="item5">
+            fifth  box
+        </div>
+        <div class="itme" id="item6">
+        sixth box
+        </div>
+
+    </div>
+
+    </div>
+</body>
+</html>

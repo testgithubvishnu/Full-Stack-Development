@@ -1,0 +1,21 @@
+<html>
+    <head>
+        <title>practice</title>
+    </head>
+
+    <body>
+        <p>first name: <label><input type="text"></label></p>
+        <p>last name: <label><input type="text"></label></p>
+        <button onclick="getvalues()">get values</button>
+
+        <script>
+            function getvalues()
+            {
+                var fname=document.getElementsByName("fname")[0].value;
+                var lname=document.getElementsByName("lname")[0].value;
+                var fullname=("your name is" + fname +" " + lname);
+                alert(fullname);
+            }
+            </script>
+    </body>
+</html>

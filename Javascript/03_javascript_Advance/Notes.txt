@@ -1,0 +1,483 @@
+stack:Primitive Data Type,We get copy
+Ex..int,boolean,float,double etc.
+
+Heap:Non-Primitive Dta Type,We get reference
+Ex..Array,object etc.
+
+==========================================================================================
+# JSON: Javascript object Notation
+
+const course = {
+  name: "histesh",
+  age: 45,
+  city: "latur",
+};
+const { name: nam } = course;
+//console.log(name);
+console.log(nam);
+//Used in React js
+
+
+API: Application programming interface
+Apna kam dusare ko dena
+
+=================================== Functions And Parameters =====================================
+
+#Functions And Parameters:
+function xyz(parameter)
+{
+    console.log(parameter.toString);
+}
+xyz(arguments);
+
+//Return Print:
+function abc(name) {
+  return `${name} just logged in`;
+}
+console.log(abc("Aman"));
+============================================================================
+# Spread Operator:
+function abc(...item) {
+  return item;
+}
+console.log(abc(100, 200, 300, 400));
+=============================== Function And Object=========================================
+#Function and object:
+
+function abc(user) {
+  console.log(`my name is ${user.name} and my age is ${user.age}`);
+}
+abc({
+  name: "Aman",
+  age: 45,
+});
+===========================================================================
+//Function and Array:
+const age = [34, 56, 74, 28, 93];
+function myage(user) {
+  return user[2];
+}
+console.log(myage([23, 45, 67, 32]));
+=============================================================================
+# Scope of varibles:
+
+let and const are block scoped
+var has global scope
+
++++++++++++++++++++++++++++++++++++++ IIFE ++++++++++++++++++++++++++++++++++
+Immediately Invoked Function Expression(IIFE):
+
+(function chai() {
+  console.log("Hello world");
+})();
+
+(function one(name) {
+  console.log(`my name is ${name}`);
+})("Aman");
+
+++++++++++++++++++++++++++++++++++++++++++++ CALL STACK  +++++++++++++++++++++++++++++++++++++++
+Execution context:
+How javascript execute code?
+
+# javscript execute it in given phases:
+-Global execution context: (this)
+-Memory creation phases:
+-Execution phase
+
+# context:
+1] Global execution context: (this)
+
+
+2] Function execution context
+3] eval execution context
+
+======================================================================
+
+==================================== Hoisting: =============================
+Declaration moves at the top
+
+console.log(a);
+var a=45;
+in this :
+var a;  // moved at the top
+a=45;
+
+#======================= Refernce value vs primitive value: =====================
+Value when copied in another variable real value never copies instead of that Refernce is passed then it s referenced value.otherwise prmitive;
+ 
+ Reference:- [],(),{}
+
+for example:
+int a=12;
+int b=a;
+b= a+2;
+// a=12 & b=14
+
+var a=[2,3,4];
+var b=a;
+b.pop();
+// a=[2,3] and b=[2,3]
+
+============================= JS Versions: ========================
+es5 -: var 
+es6 -: let & const
+
+var is in old js
+var is function scoped 
+var add itself to the window object
+
+const and let in new js
+let is bracket/braces scoped
+let and const doesnt add itself to the window object
+
+There are many features in java which are not their own .
+JS uses window object of browser to get some features of browser/properties.
+window object contains properties of browser
+
+i.e alert(),prompt(),console() are parts of browser.
+
+# Stack:
+we stores variables and data in heap memory
+
+================================= Execution Context: ==========================
+Imaiginary container made by function which contains:
+Whenever function is called it gets created
+1]variables
+2]functions inside function 
+3]lexical environment of function
+
+Ex.
+function abcd()
+{
+    var a=12;
+    function def()
+    {
+        var b=12;
+    }
+}
+# ==================== Lexical Environment:================================
+It is a chart which contains scope to various variables by function.
+Children functions can access parent variables but parent cant.
+
+# How to copy reference value:
+var a=[1,2,3,4,5,6,7,8,9];
+var b=[...a];  // Actual reference value
+var c=b;       // only reference
+
+var obj={
+    name:"harshal";
+};
+var obj1={...obj};
+
+# Truthy and Falsy:
+falsy values: 0 false undefined null NaN document.all
+rest are truthy vaiues
+
+Anonyms Function:
+var a=[1,2,3,4,5,6,7,8,9];
+a.forEach(function(val)
+{
+  console.log(val);
+});
+
+forEach never make change in original array but make changes in temporary copy of array.
+
+# ===================================== For in loop: ================================
+var obj={
+    name: "shila",
+    age:45
+}
+for(var key in obj)
+{
+    console.log(key);
+}
+
+# ==========================================First class functions:====================
+We can treat function as a variable/value.
+
+function abcd(a)
+{
+    a();
+}
+abcd(function ()
+{
+    console.log(34);
+})
+
+
+======================================================================
+
+Javascript is synchrnous and single threaded language.
+------------------------------------------------------
+The call stack is used by JavaScript to keep track of multiple function calls. 
+
+It is like a real stack in data structures where data can be pushed and popped and follows the Last In First Out (LIFO) principle. 
+
+We use call stack for memorizing which function is running right now. 
+Basically, a Javascript engine uses a call stack to manage execution context, the javascript engine builds a global execution context and pushes it to the top of the call stack when you run the script. 
+
+and when a function called the javascript engine constructs a context for the function execution, 
+places it at the top of the call stack, and begins the function’s execution. 
+
+if the function calls another function javascript engine creates a new function execution context and pushes it to the top of the call stack.
+
+======================================= Events ==============================
+
+
+======================================== Async =================================
+Blocking code vs non-blocking code:
+Reading file :synchrnously or asynchronously?
+
+
+# Web API:
+DOM API
+Settimeinterval 
+settimeout
+fetch()
+
++++++++++++++++++++++++++++++++++++++ V8 Engine API ++++++++++++++++++++++++++++
+
+V8 is the name of the JavaScript engine that powers Google Chrome. It's the thing that takes our JavaScript and executes it while browsing with Chrome.
+
+V8 is the JavaScript engine i.e. it parses and executes JavaScript code. The DOM, and the other Web Platform APIs (they all makeup runtime environment) are provided by the browser.
+
+Response from API is in the form of string
+Ex:
+const requestUrl ='https://randomuser.me/api/' ;
+        const xhr = new XMLHttpRequest();
+        xhr.open('GET', requestUrl)
+        xhr.onreadystatechange = function()
+        {
+            console.log(xhr.readyState);
+            if(xhr.readyState === 4 )
+            {
+                console.log(this.responseText);
+            }
+        }
+       
+        xhr.send();
+
+        V8 engine written in c++ but wrapper of Javascript.
+      
+=================================== PROMISES =======================================
+
+1] The promises object represents the eventual completion for failure of an asynchronous operation and its resulting value.
+
+2] Promises can be used to handle asynchronous tasks, such as fetching data from an API or uploading a     file. This can make your code more readable and easier to maintain.
+
+3] Promises can be chained together, so that you can perform multiple asynchronous tasks in a specific order. 
+This can be useful for tasks that depend on each other, such as fetching data from an API and then displaying it on a page.
+
+4] Promises can be used to handle errors that occur during asynchronous tasks.
+  This can help you to prevent your code from crashing and to provide a better user experience.
+
+It has three states:
+1] rejected
+2] fullfilled
+3] pending
+
+5]Multiple callback functions would create callback hell that leads to unmanageable code. 
+ Promises are used to handle asynchronous operations in JavaScript.
+
+======================================== FETCH ============================================
+
+fetch() is an ECMAScript6 (ES6) feature.
+The fetch() method starts the process of fetching a resource from a server.
+
+The fetch() method returns a Promise that resolves to a Response object.
+
+😀 No need for XMLHttpRequest anymore.
+
+Ex..
+async function getText(file) {
+  let myObject = await fetch(file);
+  let myText = await myObject.text();
+  myDisplay(myText);
+}
+
+======================================= PROTOTYPE ======================================
+
+Whenever an object is created it get prototype property automatically.
+Js autometically add this properties to the object.
+It conatins helper properties and methods collection
+
+# Prototype inheritance
+------------------------
+var human = {
+  canFly: false,
+  canTalk: true,
+  canEmotions: true,
+  canWalk: true,
+};
+var alien = {
+  canEat: true,
+  canSleep: false,
+  candrink: true,
+};
+
+alien.__proto__ = human;
+
+
+
+==============================================================================
++++++++++++++++++++++++++++++ Higher Order Functions+++++++++++++++++++++++++++++++
+Higher order functions are the functions which accept a function int parameter or return function
+ex..
+abcd(function(){});
+---------------------------
+abcd()
+{
+    return function(){};
+}
+
++++++++++++++++++++ Constructor Function +++++++++++++++++++++++
+Afunction whenever invoked with "New" keyword returns object.
+function abc()
+{
+    this.name = "abc";
+    this.age=56;
+    this.city="latur";
+}
+var a=new abc();
+var b= new abc();
+var c= new abc();
+
+======================================= first Class Function =====================================
+Which canbe treated as normal func and variables.
+
+function abcd()
+{
+
+}
+abcd(function(){})
+
+===============================  NEW  ===================================
+Blank object creates
+
+=============================== IIFE=================================
+To run code Immediately
+make variable private
+
+var x=(function()
+{
+    var a=12;
+
+    return {
+        getter:function()
+        {
+            console.log(a);
+        }
+        setter:function(a)
+        {
+          this.a=a;
+        }
+
+    }
+
+})()
+
+====================================== PROTOTYPE ===================================
+
+
+=================================== THIS =================================
+function within object is called method.
+# values of this in various:
+global-> window
+function-> window
+method->object
+
+============================= Call Apply Bind =================
+Call:-> who will be this
+--------
+function abc()
+{
+    console.log(this);
+}
+var obj={
+    age:34
+}
+abc.call(obj);
+
+//ex.2
+function abc(val1,val2,val3)
+{
+    console.log(this,val1,val2,val3);
+}
+var obj={
+    age:34
+}
+abc.call(obj,2,3,4);
+============================Apply====================================
+Apply:
+--------
+You can only pass two arguments.
+onr for this and other
+
+function abc(val1,val2,val3)
+{
+    console.log(this,val1,val2,val3);
+}
+var obj={
+    age:34
+}
+abc.apply(obj,[2,3,4]);
+
+============================= Bind ============================
+in future we want to run function
+Ex..
+function abc() {
+  console.log(this);
+}
+var obj = {
+  age: 34,
+};
+var ans = abc.bind(obj);
+ans();
+
+================================== CLOSURE ===================================
+Pure and impure function:
+Impure func: for same input gives same output.
+
+================================== Template Literals ==========================
+
+
+
+
+
+================================== Async And Await =================================
+To avoid blocking of execute function
+When we use third party application
+
+Main stack: All synchrnous code
+Side stack : All asynchronous code
+
+After execution of main stack side stack execute
+
+# Following are asynchronous:
+Fetch 
+Axios
+Promises
+Settimeinterval
+settimeout
+
+Above's answer we can get from below:
+callbacks
+then catch
+async Await
+
+-Java is single threaded language
+-Fast context switch
+
+# Whenever given code runs in future it will give output in callback function.
+
+================================== PROMISES ===================================
+-Used for third party dependent tasks
+promise execute in future 
+it wiil resolve or rejected
+-resolve -> the
+-reject  -> catch
+
+-It may in three codition:
+pending
+resolved 
+reject
