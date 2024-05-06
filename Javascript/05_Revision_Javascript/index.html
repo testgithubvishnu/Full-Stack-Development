@@ -19,9 +19,76 @@
           console.log(`my name is ${name}`);
 
           // const:
-          const a=56;
-          a=78;
-          console.log(a);
+        //   const a=56;
+        //   a=78;
+        //   console.log(a);  // Error
+
+          // memoey allocation
+          let num1=23;
+          let num2=num1;
+            num1=28;
+
+          console.log(num1);  //28
+          console.log(num2);  //23
+
+          let obj1={
+            name:"Ash",
+            age:34
+          }
+          obj2=obj1;
+          obj1.name="Thor";
+          console.log(obj1,obj2); 
+
+        //   let arr1=[23,45,65,34];
+        //   let arr2=arr1;
+        //   arr1[0]=45;
+        //   console.log(arr1,arr2);
+
+         // spread operator:
+            let arr1=[2,3,5,6,4]
+          let arr3=[...arr1];
+          arr1[0]=45;
+          console.log(arr1,arr3);
+         
+          // forEach:
+          arr1.forEach((current)=>{
+            console.log(current);
+          })
+
+          // Map :
+          let arr=[45,54,23,43,12];
+           let a=arr.map((ele,index,arr)=>{
+            console.log(ele,index,arr1);
+           })
+           console.log(a); // store as array
+
+           //filter:
+           let b=arr.filter((ele)=>{
+            return ele>30;
+           })
+           console.log(b);
+
+           // find:
+           let f=arr.find((ele)=>{
+            return ele>30;
+           })
+           console.log(c);
+           // find -> only first occurence
+           // filter -> throught the array
+
+           let pupil=[
+            {name:"ash",age:45},
+            {name:"manu",age:67},
+            {name:"difh",age:34},
+            {name:"dinu",age:49},
+           ]
+           let names=pupil.map((a)=>{
+            return a.name;
+           })
+           console.log(names);
+
+           
+
 
     </script>
 </body>

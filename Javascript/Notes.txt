@@ -24,6 +24,31 @@ javascript internally identifies type of variable
 -No need to specify the type of variable like in any other language
  -javascript is loosely type language
 
+ ========Memory Allocation========
+ variables stores in stack memory
+
+
+ objects,Array stores in heap memory
+
+ when we copy object/array they points to same heap memory location/address .change in original will affect other
+
+ # Spread Operator:
+ ===============
+ Used for proper copy:
+
+           let arr1=[2,3,5,6,4]
+          let arr3=[...arr1];
+          arr1[0]=45;
+          console.log(arr1,arr3);
+
+-Copies properties from original not only values
+
+function abc(...item) {
+  return item;
+}
+console.log(abc(100, 200, 300, 400));
+=============================== 
+
 ============================= JS Versions: ========================
 es5 -: var 
 es6 -: let & const
@@ -33,6 +58,7 @@ var is function scoped
 var add itself to the window object
 
 const and let in new js
+=======================
 let is bracket/braces scoped
 let and const doesnt add itself to the window object
 
@@ -199,12 +225,7 @@ function abc(name) {
 }
 console.log(abc("Aman"));
 ============================================================================
-# Spread Operator:
-function abc(...item) {
-  return item;
-}
-console.log(abc(100, 200, 300, 400));
-=============================== Function And Object=========================================
+Function And Object=========================================
 #Function and object:
 
 function abc(user) {
