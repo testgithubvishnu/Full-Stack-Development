@@ -121,22 +121,7 @@ a.forEach(function(val)
 
 forEach never make change in original array but make changes in temporary copy of array.
 
-++++++++++++++++++++++++++++++++++++++++++++ CALL STACK  +++++++++++++++++++++++++++++++++++++++
-Execution context:
-How javascript execute code?
-
-# javscript execute it in given phases:
--Global execution context: (this)
--Memory creation phases:
--Execution phase
-
-# context:
-1] Global execution context: (this)
-
-
-2] Function execution context
-3] eval execution context
-
++
 ==================================== Hoisting: =============================
 Declaration moves at the top
 
@@ -280,23 +265,6 @@ abcd(function ()
 })
 
 
-======================================================================
-
-Javascript is synchrnous and single threaded language.
-------------------------------------------------------
-The call stack is used by JavaScript to keep track of multiple function calls. 
-
-It is like a real stack in data structures where data can be pushed and popped and follows the Last In First Out (LIFO) principle. 
-
-We use call stack for memorizing which function is running right now. 
-Basically, a Javascript engine uses a call stack to manage execution context, the javascript engine builds a global execution context and pushes it to the top of the call stack when you run the script. 
-
-and when a function called the javascript engine constructs a context for the function execution, 
-places it at the top of the call stack, and begins the function’s execution. 
-
-if the function calls another function javascript engine creates a new function execution context and pushes it to the top of the call stack.
-
-
 ======================================== Async =================================
 Blocking code vs non-blocking code:
 Reading file :synchrnously or asynchronously?
@@ -304,7 +272,7 @@ Reading file :synchrnously or asynchronously?
 
 # Web API:
 DOM API
-Settimeinterval 
+SetInterval 
 settimeout
 fetch()
 
@@ -332,6 +300,53 @@ const requestUrl ='https://randomuser.me/api/' ;
 
         V8 engine written in c++ but wrapper of Javascript.
       
+===================================================
+      Javascript is synchrnous and single threaded language.
+------------------------------------------------------
+The call stack is used by JavaScript to keep track of multiple function calls. 
+
+It is like a real stack in data structures where data can be pushed and popped and follows the Last In First Out (LIFO) principle. 
+
+We use call stack for memorizing which function is running right now. 
+Basically, a Javascript engine uses a call stack to manage execution context, the javascript engine builds a global execution context and pushes it to the top of the call stack when you run the script. 
+
+and when a function called the javascript engine constructs a context for the function execution, 
+places it at the top of the call stack, and begins the function’s execution. 
+
+if the function calls another function javascript engine creates a new function execution context and pushes it to the top of the call stack.
+
++++++++++++++++++++++++++++++++++++++++++++ CALL STACK  +++++++++++++++++++++++++++++++++++++++
+
+ [Javascript visualizer site to test code]
+ [loupe site for visualize ]
+
+Execution context:
+How javascript execute code?
+
+# javscript execute it in given phases:
+-Global execution context: (this)
+-Memory creation phases:
+-Execution phase
+
+# context:
+1] Global execution context: (this)
+Responsible for executing code line by line
+
+2] Function execution context
+3] eval execution context
+
+==================CAllback Queue:================
+Funtions like setTimeout and setIntervel are stored int callback queue
+
+# Event Loop:
+-Functionality that continously check for callback queue
+It starts when js engine starts
+-It will end all synchronous task ends and 
+then event pass to web Api which after execution send it back to call stack
+check for is there something in callback queue and call put in callstack
+
+
+
 =================================== PROMISES =======================================
 
 -Used for third party dependent tasks
@@ -534,9 +549,12 @@ Side stack : All asynchronous code
 After execution of main stack side stack execute
 
 # Following are asynchronous:
+(Multi-Threading is also asynchronous)
+
 Fetch 
 Axios
 Promises
+// Provided by browser:Timer
 Settimeinterval
 settimeout
 
@@ -545,8 +563,9 @@ callbacks
 then catch
 async Await
 
--Java is single threaded language
+-Javascript is single threaded language
 -Fast context switch
 
 # Whenever given code runs in future it will give output in callback function.
+
 
