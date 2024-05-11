@@ -1,0 +1,105 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+
+ 
+// WITHOUT PROMISES:
+//===================
+// function getUsersFromFacebook(cb) {
+//   // call server
+//   // prepare data
+//   let users = [{ name: "Shirin" }, { name: "John" }];
+//   cb(users);
+// }
+
+// function getPostsFromUsers(user, cb) {
+//   // call the manipulation
+//   // pass the user for getting post
+
+//   let post = [{ title: "hello" }, { title: "bye-bye" }];
+//   cb(post);
+// }
+// setTimeout(function () {
+//   getUsersFromFacebook(function (users) {
+//     setTimeout(function () {
+//       getPostsFromUsers(users[0], function (post) {});
+//     }, 0);
+//   });
+// }, 1000);
+
+// Above is callback hell/pyramid of doom
+
+// Promises:
+// object - contains executer function / Task handler
+//  resolve or reject
+
+//USING PROMISES:
+//====================
+async function getUsersFromFacebook() {
+  const prom = new Promise(function (resolve, reject) {
+    // call server
+    // prepare data
+    let users = [{ name: "Shirin" }, { name: "John" }];
+
+    if (users.length > 0) {
+      resolve(users);
+    } else {
+      reject("failure to fetch user");
+    }
+  });
+  return prom;
+}
+
+function getPostsFromUsers() {
+  const prom = new Promise(function (resolve, reject) {
+    // call server
+    // prepare data
+    let posts = [];
+
+    if (posts.length > 0) {
+      resolve(posts);
+    } else {
+      reject("failure to fetch posts");
+    }
+  });
+  return prom;
+}
+
+getUsersFromFacebook()
+  .then(function (users) {
+    return getPostsFromUsers(users[0]);
+  })
+  .then(function (posts) {
+    console.log(posts);
+  })
+
+  .catch(function (err) {
+    console.log(err);
+  });
+
+
+  // Promises doesn't make task asynchronous it's just a way of handling the asynchronous task.
+  console.log("line 1");
+async function bigTask(){
+
+  let count=0;
+  for(let i=0; i<=100000;i++){
+ count++;
+  }
+  return new Promise(function(resolve,reject){
+    resolve(count);
+  });
+}
+console.log("line 3");
+
+</script>
+</body>
+</html>

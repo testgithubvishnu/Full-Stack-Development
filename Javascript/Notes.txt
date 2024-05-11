@@ -336,16 +336,22 @@ Responsible for executing code line by line
 3] eval execution context
 
 ==================CAllback Queue:================
-Funtions like setTimeout and setIntervel are stored int callback queue
+Funtions like setTimeout and setIntervel are stored into callback queue
 
 # Event Loop:
+=============
 -Functionality that continously check for callback queue
 It starts when js engine starts
 -It will end all synchronous task ends and 
-then event pass to web Api which after execution send it back to call stack
-check for is there something in callback queue and call put in callstack
+then event pass to web Api which after execution send it back to call back queue
 
+After execution of all synchronus task event loop check for is there something in callback queue and call put in callstack
 
+#Microtask Queue:
+===============
+Promises and callback functions are put into microtask queue
+
+Event loop first check for microtask queue and after theat for callback queue and put into call stack.
 
 =================================== PROMISES =======================================
 
