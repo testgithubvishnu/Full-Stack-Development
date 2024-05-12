@@ -14,13 +14,13 @@ fetch("link")
 // Internally fetch contains promises
 
 async function handleFetch() {
-    try{
-  let response = await fetch("https://api.github.com");
-  let data=response.json();
-  console.log(data);
-    }
-    catch(err) {
-        console.error(err);
+  try {
+    let response = await fetch("https://api.github.com");
+    let data = response.json();
+    console.log(data);
+  } catch (err) {
+    console.error(err);
+  }
 }
 
 handleFetch();
