@@ -338,6 +338,8 @@ Responsible for executing code line by line
 ==================CAllback Queue:================
 Funtions like setTimeout and setIntervel are stored into callback queue
 
+setTimeouts are used only for create timers
+
 # Event Loop:
 =============
 -Functionality that continously check for callback queue
@@ -353,6 +355,8 @@ Promises and callback functions are put into microtask queue
 
 Event loop first check for microtask queue and after theat for callback queue and put into call stack.
 
+Promises are faster than setTimeouts
+
 =================================== PROMISES =======================================
 
 -Used for third party dependent tasks
@@ -362,9 +366,9 @@ it wiil resolve or rejected
 -reject  -> catch
 
 -It may in three codition:
-pending
-resolved 
-reject
+1)pending
+2)resolved 
+3)reject
 
 1] The promises object represents the eventual completion for failure of an asynchronous operation and its resulting value.
 

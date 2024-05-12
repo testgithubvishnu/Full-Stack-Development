@@ -37,12 +37,62 @@
 
 // Above is callback hell/pyramid of doom
 
+//===========================================
+// Using CallBacks:
+
+// function getPostsFromUsers(user,sb,fb)
+// {
+//   // call API
+//   // get data
+//   let posts=[];
+//   if(posts>0)
+//   {
+//     sb(posts);
+//   }
+//   else{
+//     fb("Some problem");
+//   }
+// }
+
+//   function getUsersFromFacebook(successcb,failurecb)
+//   {
+//     // Call API
+//     //Prepare Data
+//     let users=[{name:"Saurabh"},{name:"kunal"}];
+
+//     if(users>0)
+//     {
+//       successcb(users);
+//     }
+//     else{
+//       failurecb(users);
+//     }
+//   }
+
+//   // To make it Asynchronous:
+//   setTimeout(function(){
+//     getUsersFromFacebook(function(users){
+//       setTimeout(function()
+//       {
+//         getPostsFromUsers(users[0],function (posts){
+
+//         },function (err){})
+//       })
+//     },function(err){
+
+//     })
+//   },0)
+
+// It becomes callback inside callback
+//================================================
+
 // Promises:
 // object - contains executer function / Task handler
 //  resolve or reject
 
 //USING PROMISES:
 //====================
+
 async function getUsersFromFacebook() {
   const prom = new Promise(function (resolve, reject) {
     // call server
@@ -58,11 +108,11 @@ async function getUsersFromFacebook() {
   return prom;
 }
 
-function getPostsFromUsers() {
+async function getPostsFromUsers() {
   const prom = new Promise(function (resolve, reject) {
     // call server
     // prepare data
-    let posts = [];
+    let posts = [{title:"hello"},{title:"world"}];
 
     if (posts.length > 0) {
       resolve(posts);
@@ -75,30 +125,41 @@ function getPostsFromUsers() {
 
 getUsersFromFacebook()
   .then(function (users) {
-    return getPostsFromUsers(users[0]);
+    console.log(users);
+    return getPostsFromUsers(users[0])
   })
-  .then(function (posts) {
+  .then(function (posts){
     console.log(posts);
   })
-
-  .catch(function (err) {
-    console.log(err);
-  });
+.catch(function(err){
+  console.log(err);
+})
 
 
   // Promises doesn't make task asynchronous it's just a way of handling the asynchronous task.
-  console.log("line 1");
-async function bigTask(){
+//   console.log("line 1");
+// async function bigTask(){
 
-  let count=0;
-  for(let i=0; i<=100000;i++){
- count++;
-  }
-  return new Promise(function(resolve,reject){
-    resolve(count);
-  });
-}
-console.log("line 3");
+//   return new Promise(function(resolve,reject){
+ // let count=0;
+//   for(let i=0; i<=100000;i++){
+//  count++;
+//   }
+//     resolve(count);
+//   });
+// }
+
+bigTask().then(function(data) // Goes in microTask Queue
+{
+console.log(data);
+})
+.catch(function(err)
+{
+  console.log(err);
+})
+
+console.log(bigTask()); // It prints synchronously
+ console.log("line 3");
 
 </script>
 </body>
